@@ -1,5 +1,22 @@
 .players {
+    position: relative;
+
     &--table {
         padding: 10rem 5rem;
     }
 }
+
+table {
+    font-size: 2rem;
+
+    &>td {
+        font-size: 1.5rem;
+    }
+}
+
+// .empty-message {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     transform: translate(-50%, -50%);
+// }
