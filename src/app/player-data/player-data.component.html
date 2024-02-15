@@ -1,0 +1,196 @@
+<section class="players container">
+    <div class="table-responsive players--table">
+        <p>Order By: <span>&uarr;</span><span>&darr;</span></p>
+        <table class="table table-hover">
+            <thead>
+                <th></th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Score</th>
+                <th>Nationality</th>
+                <th>Match</th>
+                <th>Round</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let player of playersData" (click)="displayHoleScore(player?.MSTID)">
+                    <td><button type="button" class="btn btn-dark" data-bs-toggle="modal"
+                            data-bs-target="#scoreModal">&#x25BC;</button></td>
+                    <td>{{player.First}}</td>
+                    <td>{{player.Last}}</td>
+                    <td>{{player.Score}}</td>
+                    <td>{{player.Nationality}}</td>
+                    <td>{{player.Match}}</td>
+                    <td>{{player.round}}</td>
+                </tr>
+                <!-- <tr *ngFor="let player of playersData">
+                    <td colspan="6" *ngIf="visible">
+                <tr>
+                    <th>Hole</th>
+                    <th>1</th>
+                    <th>2</th>
+                    <th>3</th>
+                    <th>4</th>
+                    <th>5</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th>9</th>
+                    <th>OUT</th>
+                    <th>10</th>
+                    <th>11</th>
+                    <th>12</th>
+                    <th>13</th>
+                    <th>14</th>
+                    <th>15</th>
+                    <th>16</th>
+                    <th>17</th>
+                    <th>18</th>
+                    <th>IN</th>
+                    <th>Total</th>
+                </tr>
+                <tr>
+                    <th>Hole STP</th>
+                    <td>{{player.Hole1STP}}</td>
+                    <td>{{player.Hole2STP}}</td>
+                    <td>{{player.Hole3STP}}</td>
+                    <td>{{player.Hole4STP}}</td>
+                    <td>{{player.Hole5STP}}</td>
+                    <td>{{player.Hole6STP}}</td>
+                    <td>{{player.Hole7STP}}</td>
+                    <td>{{player.Hole8STP}}</td>
+                    <td>{{player.Hole9STP}}</td>
+                    <td>{{player.OutSTP}}</td>
+                    <td>{{player.Hole10STP}}</td>
+                    <td>{{player.Hole11STP}}</td>
+                    <td>{{player.Hole12STP}}</td>
+                    <td>{{player.Hole13STP}}</td>
+                    <td>{{player.Hole14STP}}</td>
+                    <td>{{player.Hole15STP}}</td>
+                    <td>{{player.Hole16STP}}</td>
+                    <td>{{player.Hole17STP}}</td>
+                    <td>{{player.Hole18STP}}</td>
+                    <td>{{player.InSTP}}</td>
+                    <td>{{player.TotalSTP}}</td>
+
+                </tr>
+                <tr>
+                    <th>Hole Strokes</th>
+                    <td>{{player.Hole1Strokes}}</td>
+                    <td>{{player.Hole2Strokes}}</td>
+                    <td>{{player.Hole3Strokes}}</td>
+                    <td>{{player.Hole4Strokes}}</td>
+                    <td>{{player.Hole5Strokes}}</td>
+                    <td>{{player.Hole6Strokes}}</td>
+                    <td>{{player.Hole7Strokes}}</td>
+                    <td>{{player.Hole8Strokes}}</td>
+                    <td>{{player.Hole9Strokes}}</td>
+                    <td>{{player.OutStrokes}}</td>
+                    <td>{{player.Hole10Strokes}}</td>
+                    <td>{{player.Hole11Strokes}}</td>
+                    <td>{{player.Hole12Strokes}}</td>
+                    <td>{{player.Hole13Strokes}}</td>
+                    <td>{{player.Hole14Strokes}}</td>
+                    <td>{{player.Hole15Strokes}}</td>
+                    <td>{{player.Hole16Strokes}}</td>
+                    <td>{{player.Hole17Strokes}}</td>
+                    <td>{{player.Hole18Strokes}}</td>
+                    <td>{{player.InStrokes}}</td>
+                    <td>{{player.TotalStrokes}}</td>
+                </tr>
+                </td>
+                </tr> -->
+            </tbody>
+        </table>
+
+        <div class="modal fade" id="scoreModal" tabindex="-1" aria-labelledby="scoreModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        {{displayData.MSTID}}
+                        <table class="table table-hover">
+                            <thead>
+                                <th>Hole</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                                <th>6</th>
+                                <th>7</th>
+                                <th>8</th>
+                                <th>9</th>
+                                <th>OUT</th>
+                                <th>10</th>
+                                <th>11</th>
+                                <th>12</th>
+                                <th>13</th>
+                                <th>14</th>
+                                <th>15</th>
+                                <th>16</th>
+                                <th>17</th>
+                                <th>18</th>
+                                <th>IN</th>
+                                <th>Total</th>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th>Hole STP</th>
+                                    <td>{{displayData.Hole1STP}}</td>
+                                    <td>{{displayData.Hole2STP}}</td>
+                                    <td>{{displayData.Hole3STP}}</td>
+                                    <td>{{displayData.Hole4STP}}</td>
+                                    <td>{{displayData.Hole5STP}}</td>
+                                    <td>{{displayData.Hole6STP}}</td>
+                                    <td>{{displayData.Hole7STP}}</td>
+                                    <td>{{displayData.Hole8STP}}</td>
+                                    <td>{{displayData.Hole9STP}}</td>
+                                    <td>{{displayData.OutSTP}}</td>
+                                    <td>{{displayData.Hole10STP}}</td>
+                                    <td>{{displayData.Hole11STP}}</td>
+                                    <td>{{displayData.Hole12STP}}</td>
+                                    <td>{{displayData.Hole13STP}}</td>
+                                    <td>{{displayData.Hole14STP}}</td>
+                                    <td>{{displayData.Hole15STP}}</td>
+                                    <td>{{displayData.Hole16STP}}</td>
+                                    <td>{{displayData.Hole17STP}}</td>
+                                    <td>{{displayData.Hole18STP}}</td>
+                                    <td>{{displayData.InSTP}}</td>
+                                    <td>{{displayData.TotalSTP}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Hole Strokes</th>
+                                    <td>{{displayData.Hole1Strokes}}</td>
+                                    <td>{{displayData.Hole2Strokes}}</td>
+                                    <td>{{displayData.Hole3Strokes}}</td>
+                                    <td>{{displayData.Hole4Strokes}}</td>
+                                    <td>{{displayData.Hole5Strokes}}</td>
+                                    <td>{{displayData.Hole6Strokes}}</td>
+                                    <td>{{displayData.Hole7Strokes}}</td>
+                                    <td>{{displayData.Hole8Strokes}}</td>
+                                    <td>{{displayData.Hole9Strokes}}</td>
+                                    <td>{{displayData.OutStrokes}}</td>
+                                    <td>{{displayData.Hole10Strokes}}</td>
+                                    <td>{{displayData.Hole11Strokes}}</td>
+                                    <td>{{displayData.Hole12Strokes}}</td>
+                                    <td>{{displayData.Hole13Strokes}}</td>
+                                    <td>{{displayData.Hole14Strokes}}</td>
+                                    <td>{{displayData.Hole15Strokes}}</td>
+                                    <td>{{displayData.Hole16Strokes}}</td>
+                                    <td>{{displayData.Hole17Strokes}}</td>
+                                    <td>{{displayData.Hole18Strokes}}</td>
+                                    <td>{{displayData.InStrokes}}</td>
+                                    <td>{{displayData.TotalStrokes}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-dark">Save changes</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>

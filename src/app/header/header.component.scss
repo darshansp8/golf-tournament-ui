@@ -1,0 +1,18 @@
+.header {
+    padding: 2rem 5rem;
+
+    &--title {
+        font-size: 3rem;
+    }
+}
+
+.decoration-none {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #3d3d3d;
+
+    &:hover {
+        border-bottom: 1rem;
+        color: #3d3d3d;
+    }
+}
